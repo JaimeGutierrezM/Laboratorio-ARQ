@@ -87,7 +87,7 @@ int main (){
         
 
         if (exponente !=0){
-            exponente = exponente + 127;
+            exponente = exponente + 1023;
         }
 
         exponente1 = exponente;
@@ -105,7 +105,7 @@ int main (){
         
 
         if (exponente !=0){
-            exponente = exponente + 127;
+            exponente = exponente + 16383;
         }
 
         exponente1 = exponente;
