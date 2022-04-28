@@ -115,8 +115,6 @@ int main (){
     }
 
 
-    cout << cadena << "\n";
-    //subset
 
     
     cadena = cadena + " ";
