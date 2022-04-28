@@ -2,11 +2,6 @@
 //Laboratorio 02b: Aritmética de Punto Flotante
 
 
-#include <iostream>
-using namespace std;
-#include <bitset>  
-
-    
 int getexponente(string bstring, int exponente1){
        for(int i=0; i<bstring.length();i++)
        {
@@ -20,7 +15,7 @@ int getexponente(string bstring, int exponente1){
     
 int main (){
     
-    
+    //Float
     string bstring;
     
        
@@ -87,7 +82,7 @@ int main (){
         
 
         if (exponente !=0){
-            exponente = exponente + 1023;
+            exponente = exponente + 127;
         }
 
         exponente1 = exponente;
@@ -105,7 +100,7 @@ int main (){
         
 
         if (exponente !=0){
-            exponente = exponente + 16383;
+            exponente = exponente + 127;
         }
 
         exponente1 = exponente;
@@ -115,6 +110,8 @@ int main (){
     }
 
 
+    cout << cadena << "\n";
+   
 
     
     cadena = cadena + " ";
@@ -140,14 +137,97 @@ int main (){
     }
     cout << cadena << "\n";
 
-  
+    
+
+    //Double
+    
+    
+    string bstringb;
+    
+    double numero1b;
+    cout << "Ingresa su valor double: " << "\n";
+    cin >> numero1b;
+    
+    int numero2b = numero1b;
+    double numero3b = numero1b - numero2b;
+    
+
+    cout << "Parte entera: " << numero2b << "\n";
+    cout << "Parte decimal: " << numero3b << "\n";
+    cout << "Numero 3 : "<<  numero3b << "\n";
+
+    int exponenteb;
+    int significandob;
 
     
 
+    string cadenab = "";
+    
 
+    {//Bit 1
+    if (numero1b > 0)
+    {
+        cadenab = "0 ";
+    }
 
+    if (numero1b < 0)
+    {
+        cadenab = "1 ";
+    }
+    
+
+    if ( numero1b < 1){
+        numero1b = numero1b *-1;
+    }
+
+    }
+
+    if (numero1b > 0 && numero1b < 2048 ){
+        bitset<11> exponente1b(numero2b);
+        bstringb = exponente1b.to_string();
+        significandob = 52;
+        exponenteb = getexponente(bstringb,10);
+        bstringb = bstringb.substr(11-exponenteb);
+        
+
+        if (exponenteb !=0){
+            exponenteb = exponenteb + 1023;
+        }
+
+        exponente1b = exponenteb;
+        
+        cadenab = cadenab + exponente1b.to_string();
+
+    }
+
+    cout << cadenab << "\n";
    
 
+    
+    cadenab = cadenab + " ";
+    cadenab = cadenab + bstringb;
+    
+    significandob = significandob - bstringb.length();
 
+    for(int i=0; i < significandob;i++)
+    {
+        numero3b = numero3b*2.0;
+        
+        if (numero3b >= 1.0)
+        {
+            cadenab = cadenab + "1";
+            numero3b = numero3b - 1.0;
+            
+        }
+        else
+        {
+            cadenab = cadenab + "0";
+            
+        }
+    }
+    cout << cadenab << "\n";
+
+    
+    
     
 }
