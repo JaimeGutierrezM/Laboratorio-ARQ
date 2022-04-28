@@ -1,3 +1,7 @@
+//Jaime Mateo Gutierrez Muñoz
+//Laboratorio 02b: Aritmética de Punto Flotante
+
+
 #include <iostream>
 using namespace std;
 #include <bitset>  
